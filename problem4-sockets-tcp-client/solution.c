@@ -45,6 +45,8 @@ static int write_all(int fd, const void *buf, size_t n) {
         p += w;
         n -= w;
     }
+    return 0;
+}
 
 int main(int argc, char *argv[]) {
     if (argc != 3) {
