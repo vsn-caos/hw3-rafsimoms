@@ -12,6 +12,17 @@ int main(void) {
     //       затем вызовите execvp/execlp для запуска python3,
     //       который вычислит и выведет результат.
     //       Подсказка: python3 -c "print(<выражение>)"
+    char expr[4096];
+
+    if (!fgets(expr, sizeof(expr), stdin))
+        return 0;
+
+    char cmd[8192];
+    snprintf(cmd, sizeof(cmd),
+             "python3 -c \"print(%s)\"",
+             expr);
+
+    system(cmd);
 
     return 0;
 }
